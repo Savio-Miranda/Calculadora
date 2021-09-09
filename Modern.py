@@ -15,6 +15,8 @@ class CalculadoraModern2000:
         if not type(num) == int and not type(num) == float:
             return False
         return True
+    def converter_str_para_int(self, a_converter):
+        return int(a_converter)
     # Função central de cálculo contendo as operações
     def calcular(self, numero1, operacao, numero2):
         # Mas antes é preciso chamar as funções de filtragem de dados de input
@@ -24,6 +26,8 @@ class CalculadoraModern2000:
             return 'O segundo número da operação não é válido: {}'.format(numero2)
         if not self.checar_operacao(operacao):
             return 'A operação não é válida: {}'.format(operacao)
+        numero1 = self.converter_str_para_int(numero1)
+        numero2 = self.converter_str_para_int(numero2)
         # Fim da validação dos dados de input
         if operacao == '+':
             return numero1 + numero2
